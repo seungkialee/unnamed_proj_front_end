@@ -1,9 +1,24 @@
 const initialState = {
-  currentUser: {}
-}
+  currentUser: {},
+  result: {}
+};
 
 const reducer = (state = initialState, action) => {
-  return reducer
-}
+  switch (action.type) {
+    // case "ERRORS":
+    //   return {
+    //     ...state, errors: action.payload
+    //   };
 
-export default reducer
+    case "RESPONSE_RESULT":
+      return {
+        ...state,
+        result: action.payload
+      };
+
+    default:
+      return state;
+  }
+};
+
+export default reducer;
