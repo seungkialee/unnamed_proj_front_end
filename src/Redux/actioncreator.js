@@ -30,6 +30,11 @@ export const register = (username, email, phone, password) => {
       });
   };
 };
+
+// export const loginToggle = event => {
+//   type: "LOGIN_TOGGLE";
+// };
+
 //
 // .catch(error=>{dispatch({type: "ERRORS", payload: error})
 // dispatch({type: "ERRORS", payload: error})

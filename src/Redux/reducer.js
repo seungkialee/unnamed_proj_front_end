@@ -1,6 +1,8 @@
 const initialState = {
   currentUser: {},
   result: {}
+  // loginComponent: false,
+  // registerComponent: true
 };
 
 const reducer = (state = initialState, action) => {
@@ -16,6 +18,10 @@ const reducer = (state = initialState, action) => {
         result: action.payload
       };
 
+    // case "LOGIN_TOGGLE":
+    // return{
+    //
+    // }
     default:
       return state;
   }
