@@ -1,9 +1,30 @@
 const initialState = {
-  currentUser: {}
-}
+  currentUser: {},
+  result: {}
+  // loginComponent: false,
+  // registerComponent: true
+};
 
 const reducer = (state = initialState, action) => {
-  return reducer
-}
+  switch (action.type) {
+    // case "ERRORS":
+    //   return {
+    //     ...state, errors: action.payload
+    //   };
 
-export default reducer
+    case "RESPONSE_RESULT":
+      return {
+        ...state,
+        result: action.payload
+      };
+
+    // case "LOGIN_TOGGLE":
+    // return{
+    //
+    // }
+    default:
+      return state;
+  }
+};
+
+export default reducer;
