@@ -32,9 +32,6 @@ class Registration extends Component {
   };
 
   render() {
-    // if (this.props.result.hasOwnProperty("error")) {
-    //   return <div>{console.log("ternary working")}</div>;
-    // } else {
     return (
       <div>
         {console.log("after submit", this.props.result)}
@@ -81,7 +78,8 @@ const mapStateToProps = state => {
   console.log("store state", state);
   return {
     currentUser: state.currentUser,
-    result: state.result
+    result: state.result,
+    registerComponent: state.registerComponent
   };
 };
 
