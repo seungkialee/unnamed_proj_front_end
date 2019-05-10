@@ -21,7 +21,7 @@ class Registration extends Component {
     console.log(this.state);
   };
 
-  submitHandler = event => {
+  registrationHandler = event => {
     event.preventDefault();
     this.props.register(
       this.state.username,
@@ -32,48 +32,71 @@ class Registration extends Component {
   };
 
   render() {
-    // if (this.props.result.hasOwnProperty("error")) {
-    //   return <div>{console.log("ternary working")}</div>;
-    // } else {
-    return (
-      <div>
-        {console.log("after submit", this.props.result)}
-        <form autoComplete="off" onSubmit={this.submitHandler}>
-          <ul>
-            <li>
-              <input
-                onChange={this.handleChange}
-                name="username"
-                placeholder="Username"
-              />
-            </li>
-            <li>
-              <input
-                onChange={this.handleChange}
-                name="email"
-                placeholder="Email"
-              />
-            </li>
-            <li>
-              <input
-                onChange={this.handleChange}
-                name="phone"
-                placeholder="Phone"
-              />
-            </li>
-            <li>
-              <input
-                onChange={this.handleChange}
-                name="password"
-                placeholder="Password"
-                type="password"
-              />
-            </li>
-            <input type="submit" />
-          </ul>
-        </form>
-      </div>
-    );
+    if (this.props.registerComponent === true) {
+      return (
+        <div>
+          <form autoComplete="off" onSubmit={this.registrationHandler}>
+            <ul>
+              <li>
+                <input
+                  onChange={this.handleChange}
+                  name="username"
+                  placeholder="Username"
+                />
+              </li>
+              <li>
+                <input
+                  onChange={this.handleChange}
+                  name="email"
+                  placeholder="Email"
+                />
+              </li>
+              <li>
+                <input
+                  onChange={this.handleChange}
+                  name="phone"
+                  placeholder="Phone"
+                />
+              </li>
+              <li>
+                <input
+                  onChange={this.handleChange}
+                  name="password"
+                  placeholder="Password"
+                  type="password"
+                />
+              </li>
+              <input type="submit" />
+            </ul>
+          </form>
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <form autoComplete="off" onSubmit={this.loginHandler}>
+            <ul>
+              <li>
+                <input
+                  onChange={this.handleChange}
+                  name="username"
+                  placeholder="Username"
+                />
+              </li>
+              <li>
+                <input
+                  onChange={this.handleChange}
+                  name="password"
+                  placeholder="Password"
+                  type="password"
+                />
+              </li>
+              <input type="submit" />
+            </ul>
+          </form>
+        </div>
+      );
+    }
   }
 }
 // }
@@ -81,7 +104,8 @@ const mapStateToProps = state => {
   console.log("store state", state);
   return {
     currentUser: state.currentUser,
-    result: state.result
+    result: state.result,
+    registerComponent: state.registerComponent
   };
 };
 

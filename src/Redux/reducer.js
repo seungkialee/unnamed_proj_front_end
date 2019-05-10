@@ -1,8 +1,7 @@
 const initialState = {
   currentUser: {},
-  result: {}
-  // loginComponent: false,
-  // registerComponent: true
+  result: {},
+  registerComponent: true
 };
 
 const reducer = (state = initialState, action) => {
@@ -18,10 +17,8 @@ const reducer = (state = initialState, action) => {
         result: action.payload
       };
 
-    // case "LOGIN_TOGGLE":
-    // return{
-    //
-    // }
+    case "LOGIN_TOGGLE":
+      return { ...state, registerComponent: !state.registerComponent };
     default:
       return state;
   }

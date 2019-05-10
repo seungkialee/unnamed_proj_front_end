@@ -4,16 +4,14 @@ import Login from "./Components/Login.js";
 import { connect } from "react-redux";
 
 class App extends Component {
-  state = {
-    registration: true
-  };
-
   togglePage = event => {
-    this.setState({ registration: !this.state.registration });
+    this.props.dispatch({
+      type: "LOGIN_TOGGLE"
+    });
   };
 
   render() {
-    if (this.state.registration === true) {
+    if (this.props.registerComponent === true) {
       return (
         <div className="App">
           <button onClick={this.togglePage}>Login</button>
@@ -33,6 +31,10 @@ class App extends Component {
 
 const mapStateToProps = state => {
   console.log("mappedState", state);
-  return { currentUser: state.currentUser, results: state.results };
+  return {
+    currentUser: state.currentUser,
+    results: state.results,
+    registerComponent: state.registerComponent
+  };
 };
 export default connect(mapStateToProps)(App);

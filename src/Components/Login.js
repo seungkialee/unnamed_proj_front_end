@@ -1,18 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import Reg_Form from "./Reg_Form.js";
 
-class Login extends Component {
-  render() {
-    return <div>Inside Login Component</div>;
-  }
-}
-
-// const mapStateToProps = state => {
-//   console.log("store state", state);
-//   return {
-//     currentUser: state.currentUser,
-//     result: state.result
-//   };
-// };
+const Login = props => {
+  return (
+    <div>
+      <Reg_Form />
+    </div>
+  );
+};
 
 export default Login;
